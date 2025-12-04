@@ -590,6 +590,111 @@
         .btn { touch-action: manipulation; }
         .gallery { touch-action: pan-x; }
         .thumbnails { -webkit-overflow-scrolling: touch; }
+
+        /* Notification Styles */
+        .scarcity-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            z-index: 10000;
+            box-shadow: 0 10px 40px rgba(239, 68, 68, 0.4);
+            animation: notificationSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 350px;
+        }
+
+        .scarcity-notification .notification-icon {
+            font-size: 24px;
+            animation: pulse 1s infinite;
+        }
+
+        .scarcity-notification .notification-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .scarcity-notification .notification-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .scarcity-notification .notification-message {
+            font-size: 13px;
+            opacity: 0.95;
+        }
+
+        .scarcity-notification.fade-out {
+            animation: notificationFadeOut 0.3s ease forwards;
+        }
+
+        @keyframes notificationSlideIn {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes notificationFadeOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Size button sold-out enhancements */
+        .size-btn.sold-out {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #9CA3AF;
+            color: white;
+            border-color: #9CA3AF;
+            position: relative;
+        }
+
+        .size-btn.sold-out::after {
+            content: 'SOLD OUT';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 8px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: none;
+        }
+
+        .size-btn.sold-out:hover::after {
+            display: block;
+        }
+
+        .size-btn.sold-out:hover {
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
@@ -649,8 +754,8 @@
                             <button class="size-btn" data-size="S">S</button>
                             <button class="size-btn" data-size="M">M</button>
                             <button class="size-btn" data-size="L">L</button>
-                            <button class="size-btn sold-out" data-size="XL">XL</button>
-                            <button class="size-btn sold-out" data-size="XXL">XXL</button>
+                            <button class="size-btn sold-out" data-size="XL" disabled>XL</button>
+                            <button class="size-btn sold-out" data-size="XXL" disabled>XXL</button>
                         </div>
                     </div>
 
@@ -1049,13 +1154,17 @@
                 });
             });
 
-            // Sell out XS after 15 seconds
+            // Sell out XS after 15 seconds (scarcity timer)
             setTimeout(() => {
                 const xsButton = document.querySelector('.size-btn[data-size="XS"]');
                 if (xsButton && !xsButton.classList.contains('sold-out')) {
+                    // Remove selection if XS was selected
+                    if (xsButton.classList.contains('selected')) {
+                        xsButton.classList.remove('selected');
+                    }
                     xsButton.classList.add('sold-out');
                     xsButton.disabled = true;
-                    showNotification('Size XS just sold out!');
+                    showNotification('Size XS just sold out! Only S, M, and L remaining.', 'soldout');
                 }
             }, 15000);
         }
@@ -1133,27 +1242,27 @@
             }
         }
 
-        // Show notification
-        function showNotification(message) {
+        // Show scarcity notification with enhanced styling
+        function showNotification(message, type = 'soldout') {
             const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: var(--warning);
-                color: white;
-                padding: 12px 20px;
-                border-radius: 8px;
-                font-weight: 600;
-                z-index: 10000;
-                animation: slideIn 0.3s ease;
+            notification.className = 'scarcity-notification';
+
+            const icon = type === 'soldout' ? '🔥' : '⚡';
+            const title = type === 'soldout' ? 'Just Sold Out!' : 'Limited Stock';
+
+            notification.innerHTML = `
+                <span class="notification-icon">${icon}</span>
+                <div class="notification-content">
+                    <span class="notification-title">${title}</span>
+                    <span class="notification-message">${message}</span>
+                </div>
             `;
-            notification.textContent = message;
 
             document.body.appendChild(notification);
 
+            // Auto-dismiss after 3 seconds
             setTimeout(() => {
-                notification.style.animation = 'fadeOut 0.3s ease';
+                notification.classList.add('fade-out');
                 setTimeout(() => notification.remove(), 300);
             }, 3000);
         }
@@ -1179,17 +1288,9 @@
             });
         });
 
-        // Add slide in animation
+        // Add fade-in visible state (animations defined in CSS)
         const style = document.createElement('style');
         style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes fadeOut {
-                from { opacity: 1; }
-                to { opacity: 0; }
-            }
             .fade-in.visible {
                 opacity: 1;
                 transform: translateY(0);
