@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grey Winter Sneaker GLM - Premium Winter Footwear</title>
+    <meta name="description" content="Discover the perfect grey winter sneakers that combine style, comfort, and versatility. Ideal for cold weather with superior warmth and modern design.">
+    <meta name="keywords" content="grey winter sneakers, winter footwear, comfortable shoes, grey sneakers, winter shoes, athleisure">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" as="font" href="./fonts/montserrat-600.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="./fonts/montserrat-400.woff2" type="font/woff2" crossorigin>
+
+    <!-- Fonts -->
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            font-weight: 600;
+            font-display: swap;
+            src: url('./fonts/montserrat-600.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Montserrat';
+            font-weight: 400;
+            font-display: swap;
+            src: url('./fonts/montserrat-400.woff2') format('woff2');
+        }
+    </style>
+
+    <style>
+        :root {
+            --primary: #9CA3AF;
+            --primary-light: #D1D5DB;
+            --primary-lighter: #E5E7EB;
+            --primary-dark: #6B7280;
+            --primary-darker: #4B5563;
+            --secondary: #F3F4F6;
+            --accent: #3B82F6;
+            --background: #FFFFFF;
+            --text: #1F2937;
+            --text-light: #6B7280;
+            --text-lighter: #9CA3AF;
+            --border: #E5E7EB;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --sole: #F9FAFB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--background) 50%, var(--sole) 100%);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header h1 {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: var(--text-light);
+            font-size: clamp(14px, 2.5vw, 18px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 0;
+        }
+
+        .product-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-bottom: 60px;
+        }
+
+        .gallery {
+            position: relative;
+        }
+
+        .main-img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .main-img:hover {
+            transform: scale(1.02);
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            overflow-x: auto;
+            padding: 5px 0;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .thumbnail.active {
+            border-color: var(--accent);
+        }
+
+        .product-info {
+            padding: 20px 0;
+        }
+
+        .product-title {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .product-subtitle {
+            font-size: clamp(16px, 3vw, 20px);
+            color: var(--text-light);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 100%);
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .price-card {
+            text-align: center;
+            padding: 16px;
+            background: var(--background);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .price-amount {
+            font-size: clamp(20px, 3.5vw, 28px);
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .price-label {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .price-original {
+            font-size: 16px;
+            color: var(--text-lighter);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .price-savings {
+            font-size: 14px;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 16px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, #2563EB 100%);
+            color: white;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--primary);
+            color: white;
+            width: 100%;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Size Selector */
+        .size-section {
+            margin-bottom: 32px;
+        }
+
+        .size-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .size-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 12px;
+        }
+
+        .size-btn {
+            padding: 12px;
+            border: 2px solid var(--border);
+            background: var(--background);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .size-btn:hover {
+            border-color: var(--primary);
+            background: var(--secondary);
+        }
+
+        .size-btn.selected {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: white;
+        }
+
+        .size-btn.sold-out {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: var(--text-lighter);
+            color: white;
+        }
+
+        /* Features */
+        .features-section {
+            background: var(--secondary);
+            padding: 40px 0;
+            margin: 40px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 24px;
+            background: var(--background);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .testimonial-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .testimonial-platform {
+            color: var(--text-light);
+        }
+
+        .testimonial-rating {
+            color: var(--warning);
+        }
+
+        /* Order Bump Popup */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .popup-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--background);
+            padding: 32px;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        .popup-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .popup-badge {
+            background: var(--warning);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .popup-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .popup-subtitle {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .value-stack {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--background) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .value-comparison {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .value-original {
+            text-decoration: line-through;
+            color: var(--text-lighter);
+            font-size: 18px;
+        }
+
+        .value-arrow {
+            font-size: 24px;
+            color: var(--success);
+        }
+
+        .value-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .value-savings {
+            background: var(--success);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Mobile Sticky CTA */
+        .mobile-sticky {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--background);
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .product-showcase {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .price-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .size-grid {
+                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mobile-sticky {
+                display: block;
+            }
+
+            .popup-content {
+                padding: 24px;
+            }
+
+            /* Disable heavy animations on mobile */
+            .btn-primary::before { animation: none; }
+            .fade-in { transition: opacity 0.3s ease; }
+        }
+
+        /* Respect user preference for reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Touch optimization */
+        .btn { touch-action: manipulation; }
+        .gallery { touch-action: pan-x; }
+        .thumbnails { -webkit-overflow-scrolling: touch; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>Grey Winter Sneaker GLM</h1>
+            <p>Premium Winter Footwear for Ultimate Comfort & Style</p>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="product-showcase">
+                <div class="gallery">
+                    <img id="mainImage" src="prodsneaker12341 (7).jpg" alt="Grey Winter Sneaker GLM - Main View" class="main-img fade-in visible">
+                    <div class="thumbnails" id="thumbnails">
+                        <!-- Thumbnails will be dynamically added -->
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-title">Grey Winter Sneaker GLM</h2>
+                    <p class="product-subtitle">
+                        Experience the perfect blend of winter warmth and contemporary style.
+                        These premium grey sneakers feature advanced comfort technology and a sleek,
+                        minimalist design that complements any winter wardrobe.
+                    </p>
+
+                    <!-- Price Section -->
+                    <div class="price-section">
+                        <div class="price-grid">
+                            <div class="price-card">
+                                <div class="price-original">$129</div>
+                                <div class="price-amount">$59</div>
+                                <div class="price-label">Order Today</div>
+                                <div class="price-savings">54% OFF</div>
+                            </div>
+                            <div class="price-card">
+                                <div class="price-amount">$19</div>
+                                <div class="price-label">Pre-Order</div>
+                                <div class="price-savings">85% OFF</div>
+                            </div>
+                            <div class="price-card">
+                                <div class="price-amount">$29</div>
+                                <div class="price-label">With Bundle</div>
+                                <div class="price-savings">78% OFF</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Size Selector -->
+                    <div class="size-section">
+                        <h3 class="size-title">Select Size:</h3>
+                        <div class="size-grid">
+                            <button class="size-btn" data-size="XS">XS</button>
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn sold-out" data-size="XL">XL</button>
+                            <button class="size-btn sold-out" data-size="XXL">XXL</button>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="cta-section">
+                        <button id="orderToday" class="btn btn-primary">Order Today - $59</button>
+                        <button id="preOrder" class="btn btn-secondary">Pre-Order - $19</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">❄️</div>
+                    <h3 class="feature-title">Winter Ready</h3>
+                    <p class="feature-desc">Insulated design keeps feet warm in temperatures as low as -10°C</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3 class="feature-title">Cloud Comfort</h3>
+                    <p class="feature-desc">Advanced cushioning technology provides all-day walking comfort</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Versatile Style</h3>
+                    <p class="feature-desc">Perfect grey shade complements any winter outfit effortlessly</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Weather Resistant</h3>
+                    <p class="feature-desc">Water-resistant upper and non-slip sole for winter conditions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid" id="testimonialsGrid">
+                <!-- Testimonials will be dynamically added -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Bump Popup -->
+    <div class="popup-overlay" id="orderBumpPopup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <div class="popup-badge">LIMITED TIME OFFER</div>
+                <h2 class="popup-title">Complete Your Winter Look?</h2>
+                <p class="popup-subtitle">Add our premium winter care kit to protect your investment</p>
+            </div>
+
+            <div class="value-stack">
+                <div class="value-comparison">
+                    <div>
+                        <div class="value-original">$59</div>
+                        <div>Regular Price</div>
+                    </div>
+                    <div class="value-arrow">→</div>
+                    <div>
+                        <div class="value-price">$29</div>
+                        <div>Bundle Price</div>
+                    </div>
+                </div>
+                <div class="value-savings">SAVE 50%!</div>
+            </div>
+
+            <div class="popup-features">
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 12px;">✓ Premium water repellent spray</li>
+                    <li style="margin-bottom: 12px;">✓ Winter care cleaning kit</li>
+                    <li style="margin-bottom: 12px;">✓ Comfort insoles for extra warmth</li>
+                    <li style="margin-bottom: 12px;">✓ Protective storage bag</li>
+                </ul>
+            </div>
+
+            <div class="popup-actions">
+                <button id="acceptBump" class="btn btn-primary" style="width: 100%; margin-bottom: 12px;">YES! Add Bundle - $29</button>
+                <button id="declineBump" class="btn btn-secondary" style="width: 100%;">No thanks, just the sneakers</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky">
+        <button id="mobileOrder" class="btn btn-primary" style="width: 100%;">Order Now - $59</button>
+    </div>
+
+    <script>
+        // Product Images Data
+        const productImages = [
+            'prodsneaker12341 (7).jpg',
+            'prodsneaker12341 (6).jpg',
+            'prodsneaker12341 (9).jpg'
+        ];
+
+        // Testimonials Data
+        const testimonials = [
+            {
+                name: "Jamie K.",
+                platform: "tiktok",
+                rating: 5,
+                text: "obsessed with my grey winter sneakers!! so comfy for walking around campus and the grey matches literally everything 🤍",
+                date: "2 days ago",
+                img: "Gemini_Generated_Image_32ndrp32ndrp32nd (1).png"
+            },
+            {
+                name: "Marcus T.",
+                platform: "instagram",
+                rating: 5,
+                text: "these sneakers are perfect for winter! the grey color is so clean and they keep my feet warm without being bulky",
+                date: "5 days ago",
+                img: "Gemini_Generated_Image_sjettnsjettnsjet (1).png"
+            },
+            {
+                name: "Sophia L.",
+                platform: "tiktok",
+                rating: 5,
+                text: "finally found the perfect winter sneakers! the grey is so versatile and they're literally cloud-like ☁️",
+                date: "1 week ago",
+                img: "Gemini_Generated_Image_wun9zswun9zswun9 (3).png"
+            },
+            {
+                name: "Dylan R.",
+                platform: "google",
+                rating: 5,
+                text: "best purchase this winter! these grey sneakers are incredibly comfortable and stylish. wear them everywhere",
+                date: "3 days ago",
+                img: "Gemini_Generated_Image_wun9zswun9zswun9 (2).png"
+            },
+            {
+                name: "Ava M.",
+                platform: "instagram",
+                rating: 5,
+                text: "the perfect neutral sneakers! the grey goes with all my winter outfits and they're so lightweight ✨",
+                date: "1 week ago",
+                img: "Gemini_Generated_Image_wun9zswun9zswun9 (5).png"
+            },
+            {
+                name: "Ryan B.",
+                platform: "facebook",
+                rating: 5,
+                text: "amazing winter sneakers! the grey color is exactly what I wanted and they're perfect for daily wear",
+                date: "2 weeks ago",
+                img: "Gemini_Generated_Image_32ndrp32ndrp32nd (7).png"
+            },
+            {
+                name: "Zoe Chen",
+                platform: "tiktok",
+                rating: 5,
+                text: "these grey sneakers are my go-to for winter! so comfy for long walks and the color is perfect 🖤",
+                date: "4 days ago",
+                img: "Gemini_Generated_Image_wun9zswun9zswun9 (9).png"
+            },
+            {
+                name: "Ethan W.",
+                platform: "trustpilot",
+                rating: 5,
+                text: "perfect winter footwear! these grey sneakers exceeded my expectations. quality is amazing",
+                date: "1 week ago",
+                img: "Gemini_Generated_Image_sjettnsjettnsjet (6).png"
+            },
+            {
+                name: "Isabella P.",
+                platform: "instagram",
+                rating: 5,
+                text: "in love with these winter sneakers! the grey is so chic and they keep my feet cozy all day",
+                date: "6 days ago",
+                img: "Gemini_Generated_Image_32ndrp32ndrp32nd (6).png"
+            },
+            {
+                name: "Lucas H.",
+                platform: "tiktok",
+                rating: 5,
+                text: "best winter sneakers ever! the grey color is perfect and they're so comfortable for walking 🚶‍♂️",
+                date: "3 days ago",
+                img: "Gemini_Generated_Image_wun9zswun9zswun9 (4).png"
+            },
+            {
+                name: "Mia Rodriguez",
+                platform: "facebook",
+                rating: 5,
+                text: "these grey sneakers are perfect for winter! stylish, comfy, and go with everything in my wardrobe",
+                date: "2 weeks ago",
+                img: "Gemini_Generated_Image_wun9zswun9zswun9 (7).png"
+            },
+            {
+                name: "Nathan K.",
+                platform: "google",
+                rating: 5,
+                text: "excellent winter sneakers! the grey color is exactly as shown and they're incredibly well-made",
+                date: "5 days ago",
+                img: "Gemini_Generated_Image_32ndrp32ndrp32nd (9).png"
+            },
+            {
+                name: "Olivia S.",
+                platform: "instagram",
+                rating: 5,
+                text: "perfect neutral sneakers for winter! the grey is so versatile and they feel like walking on clouds ☁️",
+                date: "1 week ago",
+                img: "Gemini_Generated_Image_sjettnsjettnsjet (5).png"
+            },
+            {
+                name: "Caleb D.",
+                platform: "tiktok",
+                rating: 5,
+                text: "these grey winter sneakers are everything! so comfy for running errands and the style is on point",
+                date: "4 days ago",
+                img: "Gemini_Generated_Image_32ndrp32ndrp32nd (5).png"
+            },
+            {
+                name: "Emily Watson",
+                platform: "trustpilot",
+                rating: 5,
+                text: "love these winter sneakers! the grey color is perfect and they're great for all-day wear",
+                date: "1 week ago",
+                img: "Gemini_Generated_Image_32ndrp32ndrp32nd (4).png"
+            },
+            {
+                name: "Jacob M.",
+                platform: "facebook",
+                rating: 5,
+                text: "perfect winter footwear! these grey sneakers are comfortable, stylish, and well worth the money",
+                date: "2 weeks ago",
+                img: "Gemini_Generated_Image_sjettnsjettnsjet (4).png"
+            },
+            {
+                name: "Charlotte L.",
+                platform: "instagram",
+                rating: 5,
+                text: "these grey sneakers are my winter staple! so versatile and incredibly comfortable ❤️",
+                date: "3 days ago",
+                img: "Gemini_Generated_Image_32ndrp32ndrp32nd (8).png"
+            },
+            {
+                name: "Benjamin T.",
+                platform: "tiktok",
+                rating: 5,
+                text: "best winter purchase! these grey sneakers are perfect for cold weather and look amazing with everything",
+                date: "1 week ago",
+                img: "Gemini_Generated_Image_wun9zswun9zswun9 (6).png"
+            },
+            {
+                name: "Amelia G.",
+                platform: "google",
+                rating: 5,
+                text: "perfect grey sneakers for winter! comfortable, stylish, and great quality construction",
+                date: "5 days ago",
+                img: "Gemini_Generated_Image_wun9zswun9zswun9 (8).png"
+            },
+            {
+                name: "Matthew S.",
+                platform: "facebook",
+                rating: 5,
+                text: "these winter sneakers are amazing! the grey color is perfect and they're so comfortable for daily wear",
+                date: "2 weeks ago",
+                img: "Gemini_Generated_Image_32ndrp32ndrp32nd (1).png"
+            },
+            {
+                name: "Harper P.",
+                platform: "instagram",
+                rating: 5,
+                text: "obsessed with these grey winter sneakers! perfect for cold weather and so stylish ✨",
+                date: "4 days ago",
+                img: "Gemini_Generated_Image_sjettnsjettnsjet (3).png"
+            },
+            {
+                name: "Alexander R.",
+                platform: "trustpilot",
+                rating: 5,
+                text: "excellent winter sneakers! the grey color is versatile and they're incredibly comfortable",
+                date: "1 week ago",
+                img: "Gemini_Generated_Image_32ndrp32ndrp32nd (7).png"
+            },
+            {
+                name: "Evelyn K.",
+                platform: "tiktok",
+                rating: 5,
+                text: "these grey sneakers are perfect for winter! so comfy and the neutral color goes with everything 🤍",
+                date: "3 days ago",
+                img: "Gemini_Generated_Image_wun9zswun9zswun9 (3).png"
+            }
+        ];
+
+        // Platform Colors
+        const platformColors = {
+            "tiktok": "#000000",
+            "instagram": "#E4405F",
+            "facebook": "#1877F2",
+            "trustpilot": "#00b67a",
+            "google": "#4285F4"
+        };
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadThumbnails();
+            loadTestimonials();
+            setupEventListeners();
+            setupSizeSelector();
+            updateMobileStickyButton();
+        });
+
+        // Load product thumbnails
+        function loadThumbnails() {
+            const thumbnailsContainer = document.getElementById('thumbnails');
+
+            productImages.forEach((image, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = image;
+                thumbnail.alt = `Grey Winter Sneaker - View ${index + 1}`;
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.onclick = () => switchMainImage(image, thumbnail);
+                thumbnailsContainer.appendChild(thumbnail);
+            });
+        }
+
+        // Switch main image
+        function switchMainImage(src, element) {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = src;
+
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        // Load testimonials
+        function loadTestimonials() {
+            const grid = document.getElementById('testimonialsGrid');
+
+            testimonials.slice(0, 6).forEach(testimonial => {
+                const card = createTestimonialCard(testimonial);
+                grid.appendChild(card);
+            });
+        }
+
+        // Create testimonial card
+        function createTestimonialCard(testimonial) {
+            const card = document.createElement('div');
+            card.className = 'testimonial-card';
+
+            card.innerHTML = `
+                <img src="images/testimonials/${testimonial.img}" alt="${testimonial.name}" class="testimonial-image" loading="lazy">
+                <p class="testimonial-text">"${testimonial.text}"</p>
+                <div class="testimonial-footer">
+                    <span class="testimonial-name">${testimonial.name}</span>
+                    <span class="testimonial-platform" style="color: ${platformColors[testimonial.platform]}">${testimonial.platform}</span>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Order buttons
+            document.getElementById('orderToday').addEventListener('click', () => processOrder(59));
+            document.getElementById('preOrder').addEventListener('click', showOrderBump);
+            document.getElementById('mobileOrder').addEventListener('click', () => processOrder(59));
+
+            // Order bump popup
+            document.getElementById('acceptBump').addEventListener('click', () => processOrder(29));
+            document.getElementById('declineBump').addEventListener('click', () => processOrder(19));
+
+            // Close popup on overlay click
+            document.getElementById('orderBumpPopup').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+        }
+
+        // Setup size selector
+        function setupSizeSelector() {
+            const sizeButtons = document.querySelectorAll('.size-btn:not(.sold-out)');
+            let selectedSize = null;
+
+            sizeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove previous selection
+                    sizeButtons.forEach(btn => btn.classList.remove('selected'));
+
+                    // Add selection to clicked button
+                    this.classList.add('selected');
+                    selectedSize = this.dataset.size;
+                });
+            });
+
+            // Sell out XS after 15 seconds
+            setTimeout(() => {
+                const xsButton = document.querySelector('.size-btn[data-size="XS"]');
+                if (xsButton && !xsButton.classList.contains('sold-out')) {
+                    xsButton.classList.add('sold-out');
+                    xsButton.disabled = true;
+                    showNotification('Size XS just sold out!');
+                }
+            }, 15000);
+        }
+
+        // Show order bump popup
+        function showOrderBump() {
+            document.getElementById('orderBumpPopup').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Hide order bump popup
+        function hideOrderBump() {
+            document.getElementById('orderBumpPopup').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Process order
+        function processOrder(amount) {
+            hideOrderBump();
+
+            // Show loading state
+            const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                btn.textContent = 'Processing...';
+            });
+
+            // Create exchange via SimpleSwap API
+            fetch('https://simpleswap-automation-1.onrender.com/create-exchange', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    amount: amount,
+                    currency: 'USD'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.exchange_url) {
+                    // Redirect to SimpleSwap
+                    window.location.href = data.exchange_url;
+                } else {
+                    throw new Error('Invalid response from exchange service');
+                }
+            })
+            .catch(error => {
+                console.error('Order processing error:', error);
+                // Fallback to demo page
+                window.location.href = `https://simpleswap.io/exchange?from=usd-usd&to=pol-matic&amount=${amount}`;
+            })
+            .finally(() => {
+                // Reset buttons after delay
+                setTimeout(() => {
+                    buttons.forEach(btn => {
+                        btn.disabled = false;
+                        if (btn.id === 'orderToday' || btn.id === 'mobileOrder') {
+                            btn.textContent = 'Order Today - $59';
+                        } else if (btn.id === 'preOrder') {
+                            btn.textContent = 'Pre-Order - $19';
+                        }
+                    });
+                }, 3000);
+            });
+        }
+
+        // Update mobile sticky button
+        function updateMobileStickyButton() {
+            const selectedSize = document.querySelector('.size-btn.selected');
+            const mobileButton = document.getElementById('mobileOrder');
+
+            if (selectedSize) {
+                mobileButton.textContent = `Order Size ${selectedSize.dataset.size} - $59`;
+            }
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--warning);
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                font-weight: 600;
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Add slide in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

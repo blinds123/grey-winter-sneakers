@@ -1,0 +1,20 @@
+{
+  "name": "greywintersneakerglm",
+  "version": "1.0.0",
+  "description": "Grey Winter Sneaker GLM Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "start": "netlify dev",
+    "build": "echo 'Build complete'",
+    "test": "echo 'Tests complete'"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "netlify-cli": "^10.0.0"
+  },
+  "keywords": ["landing-page", "ecommerce", "sneakers", "winter"],
+  "author": "Claude",
+  "license": "MIT"
+}
