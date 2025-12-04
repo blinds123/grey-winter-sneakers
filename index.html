@@ -748,14 +748,15 @@
 
                     <!-- Size Selector -->
                     <div class="size-section">
-                        <h3 class="size-title">Select Size:</h3>
+                        <h3 class="size-title">Select Size (US):</h3>
                         <div class="size-grid">
-                            <button class="size-btn" data-size="XS">XS</button>
-                            <button class="size-btn" data-size="S">S</button>
-                            <button class="size-btn" data-size="M">M</button>
-                            <button class="size-btn" data-size="L">L</button>
-                            <button class="size-btn sold-out" data-size="XL" disabled>XL</button>
-                            <button class="size-btn sold-out" data-size="XXL" disabled>XXL</button>
+                            <button class="size-btn" data-size="7">7</button>
+                            <button class="size-btn" data-size="8">8</button>
+                            <button class="size-btn" data-size="9">9</button>
+                            <button class="size-btn" data-size="10">10</button>
+                            <button class="size-btn" data-size="11">11</button>
+                            <button class="size-btn sold-out" data-size="12" disabled>12</button>
+                            <button class="size-btn sold-out" data-size="13" disabled>13</button>
                         </div>
                     </div>
 
@@ -1154,17 +1155,17 @@
                 });
             });
 
-            // Sell out XS after 15 seconds (scarcity timer)
+            // Sell out size 10 after 15 seconds (scarcity timer - popular size)
             setTimeout(() => {
-                const xsButton = document.querySelector('.size-btn[data-size="XS"]');
-                if (xsButton && !xsButton.classList.contains('sold-out')) {
-                    // Remove selection if XS was selected
-                    if (xsButton.classList.contains('selected')) {
-                        xsButton.classList.remove('selected');
+                const size10Button = document.querySelector('.size-btn[data-size="10"]');
+                if (size10Button && !size10Button.classList.contains('sold-out')) {
+                    // Remove selection if size 10 was selected
+                    if (size10Button.classList.contains('selected')) {
+                        size10Button.classList.remove('selected');
                     }
-                    xsButton.classList.add('sold-out');
-                    xsButton.disabled = true;
-                    showNotification('Size XS just sold out! Only S, M, and L remaining.', 'soldout');
+                    size10Button.classList.add('sold-out');
+                    size10Button.disabled = true;
+                    showNotification('Size 10 just sold out! Only sizes 7, 8, 9, and 11 remaining.', 'soldout');
                 }
             }, 15000);
         }
