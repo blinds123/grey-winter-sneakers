@@ -752,9 +752,9 @@
                         <div class="size-grid">
                             <button class="size-btn sold-out" data-size="4" disabled>4</button>
                             <button class="size-btn sold-out" data-size="4.5" disabled>4.5</button>
-                            <button class="size-btn sold-out" data-size="5" disabled>5</button>
+                            <button class="size-btn" data-size="5">5</button>
                             <button class="size-btn sold-out" data-size="5.5" disabled>5.5</button>
-                            <button class="size-btn sold-out" data-size="6" disabled>6</button>
+                            <button class="size-btn" data-size="6">6</button>
                             <button class="size-btn" data-size="6.5">6.5</button>
                             <button class="size-btn" data-size="7">7</button>
                             <button class="size-btn" data-size="8">8</button>
@@ -1165,17 +1165,17 @@
                 });
             });
 
-            // Sell out size 10 after 15 seconds (scarcity timer - popular size)
+            // Sell out size 6.5 after 15 seconds (scarcity timer - popular size)
             setTimeout(() => {
-                const size10Button = document.querySelector('.size-btn[data-size="10"]');
-                if (size10Button && !size10Button.classList.contains('sold-out')) {
-                    // Remove selection if size 10 was selected
-                    if (size10Button.classList.contains('selected')) {
-                        size10Button.classList.remove('selected');
+                const size65Button = document.querySelector('.size-btn[data-size="6.5"]');
+                if (size65Button && !size65Button.classList.contains('sold-out')) {
+                    // Remove selection if size 6.5 was selected
+                    if (size65Button.classList.contains('selected')) {
+                        size65Button.classList.remove('selected');
                     }
-                    size10Button.classList.add('sold-out');
-                    size10Button.disabled = true;
-                    showNotification('Size 10 just sold out! Only 5 sizes remaining.', 'soldout');
+                    size65Button.classList.add('sold-out');
+                    size65Button.disabled = true;
+                    showNotification('Size 6.5 just sold out! Only 7 sizes remaining.', 'soldout');
                 }
             }, 15000);
         }
