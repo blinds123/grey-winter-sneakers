@@ -750,6 +750,8 @@
                     <div class="size-section">
                         <h3 class="size-title">Select Size (US):</h3>
                         <div class="size-grid">
+                            <button class="size-btn sold-out" data-size="4" disabled>4</button>
+                            <button class="size-btn sold-out" data-size="4.5" disabled>4.5</button>
                             <button class="size-btn sold-out" data-size="5" disabled>5</button>
                             <button class="size-btn sold-out" data-size="5.5" disabled>5.5</button>
                             <button class="size-btn sold-out" data-size="6" disabled>6</button>
@@ -762,6 +764,9 @@
                             <button class="size-btn sold-out" data-size="12" disabled>12</button>
                             <button class="size-btn sold-out" data-size="13" disabled>13</button>
                             <button class="size-btn sold-out" data-size="14" disabled>14</button>
+                            <button class="size-btn sold-out" data-size="15" disabled>15</button>
+                            <button class="size-btn sold-out" data-size="16" disabled>16</button>
+                            <button class="size-btn sold-out" data-size="17" disabled>17</button>
                         </div>
                     </div>
 
@@ -1170,7 +1175,7 @@
                     }
                     size10Button.classList.add('sold-out');
                     size10Button.disabled = true;
-                    showNotification('Size 10 just sold out! Only 6 sizes left in stock.', 'soldout');
+                    showNotification('Size 10 just sold out! Only 5 sizes remaining.', 'soldout');
                 }
             }, 15000);
         }
